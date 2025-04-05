@@ -8,7 +8,7 @@ body, html{
 }
 .container{
     display: grid;
-    grid-template-rows: 1fr 5fr;
+    grid-template-rows: auto 1fr;
     grid-template-columns: 1fr 4fr;
     height: 100%;
 }
@@ -17,6 +17,10 @@ header{
     grid-area: 1 / 2 / 2 / 3;
     padding: 0 2vw;
     padding-top: 1vh;
+    position: sticky;
+    top: 0;      
+    z-index: 10; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 .sidebar{
     background-color: rgb(0, 0, 117);
@@ -40,14 +44,15 @@ main{
     background-color: rgb(230, 230, 230);
     grid-area: 2 / 2 / 3 / 3;
     display: grid;
-    grid-template-rows: 1fr 6fr 1fr 6fr;
-    grid-template-columns: 3.5fr 1fr;
+    grid-template-rows: .5fr 6fr .5fr 6fr;
+    grid-template-columns: 3fr 1fr;
     padding: 20px;
     padding-right: 30px;
     padding-bottom: 30px;
 }
 h3{
     margin: 0;
+    padding: 7px;
     padding-top: 10px;
 }
 .cardCon{
@@ -63,6 +68,8 @@ h3{
     height: 30vh;
     border-left: .5vw solid orange;
     padding: 2vh;
+    z-index: 9;  
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 .card > p{
     font-size: .9rem;
@@ -72,15 +79,43 @@ h3{
     font-size: 1.1rem;
     margin: 0;
 }
-.announce{
+.announceCon{
     grid-area: 2 / 2 / 3 / 3;
     background-color: white;
     border-radius: 5px;
+    display: grid;
+    padding: 20px;
+    gap: 10px;
+    z-index: 9;  
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
-.trending{
+.announce{
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 10px;
+}
+.announce > p,
+.announce > h6{
+    margin: 0 ;
+}
+.announce > h6{
+    font-size: .85rem;
+}
+.announce > p{
+    font-size: .65rem;
+    color: gray;
+}
+#exc{
+    border-bottom: none;
+    padding-bottom: 0;
+}
+.trendingCon{
     grid-area: 4 / 2 / 5 / 3;
     background-color: white;
     border-radius: 5px;
+    display: grid;
+    padding: 20px;
+    z-index: 9;  
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 .headerTop{
     display: flex;
@@ -121,7 +156,7 @@ h3{
 }
 .nav2{
     position: sticky;
-    top: 50vh;
+    top: 45vh;
 }
 .nav1 > li,
 .nav2 > li, .logo{
@@ -154,7 +189,20 @@ button{
     width: 2.5rem;
 }
 .topPic{
-    width: 2.1rem;
-    height: 2.1rem;
+    width: 2.3rem;
+    height: 2.3rem;
     border-radius: 30px;
+}
+.trend{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.handle,
+.trendDesc{
+    margin: 0;
+    font-size: .9rem;
+}
+.handle{
+    font-weight: bold;
 }
